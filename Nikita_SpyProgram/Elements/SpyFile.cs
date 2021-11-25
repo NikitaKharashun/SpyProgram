@@ -8,20 +8,20 @@ namespace Nikita_SpyProgram.Elements
 {
     class SpyFile
     {
-        public event Action<DateTime, ConsoleKeyInfo> KeyLogger;
+        public event Action<DateTime, ConsoleKey> KeyLogger;
 
         public void Start()
         {
             bool isEnter = false;
-            ConsoleKeyInfo key;
+            ConsoleKey key;
 
-            Console.WriteLine("Включено логирование клавиш");
+            Console.WriteLine("Включено логирование клавиш. Нажмите Enter, чтобы выйти");
 
             while (!isEnter)
             {
-                key = Console.ReadKey();
+                key = Console.ReadKey().Key;
 
-                isEnter = key.Key.Equals(ConsoleKey.Enter);
+                isEnter = key.Equals(ConsoleKey.Enter);
 
                 KeyLogger(DateTime.Now, key);
             }

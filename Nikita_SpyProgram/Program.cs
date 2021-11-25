@@ -13,16 +13,16 @@ namespace Nikita_SpyProgram
         {
             var spyFile = new SpyFile();
 
-            Dictionary<DateTime, ConsoleKeyInfo> keys = new Dictionary<DateTime, ConsoleKeyInfo>();
+            Dictionary<DateTime, ConsoleKey> keys = new Dictionary<DateTime, ConsoleKey>();
 
-            spyFile.KeyLogger += (date, info) => keys[date] = info;
+            spyFile.KeyLogger += (date, key) => keys[date] = key;
 
             spyFile.Start();
 
-            foreach (KeyValuePair<DateTime, ConsoleKeyInfo> item in keys)
-                Console.WriteLine($" Время: {item.Key} | Клавиша : {item.Value.KeyChar}");
+            foreach (KeyValuePair<DateTime, ConsoleKey> item in keys)
+                Console.WriteLine($" Время: {item.Key} | Клавиша : {item.Value}");
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
