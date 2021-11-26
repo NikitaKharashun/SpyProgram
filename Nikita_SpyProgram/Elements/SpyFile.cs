@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Nikita_SpyProgram.Elements
 {
@@ -24,6 +25,26 @@ namespace Nikita_SpyProgram.Elements
                 isEnter = key.Equals(ConsoleKey.Enter);
 
                 KeyLogger(DateTime.Now, key);
+            }
+        }
+
+
+
+        public static void FileInfo(DateTime time, ConsoleKey key)
+        {
+            string path = @"C:\Users\khara\Desktop\Info.txt";
+
+            var fileInfo = new FileInfo(path);
+
+
+            using (StreamWriter sw = fileInfo.AppendText())
+            {
+                sw.WriteLine($" Время: {time} | Клавиша : {key}");
+            }
+
+            using (StreamReader sr = new StreamReader(path))
+            {
+                Console.WriteLine(sr.ReadToEnd());
             }
         }
     }
