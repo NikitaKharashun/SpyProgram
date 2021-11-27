@@ -17,7 +17,7 @@ namespace Nikita_SpyProgram
 
             spyFile.KeyLogger += (date, key) => keys[date] = key;
 
-            spyFile.Start();
+            spyFile.Logging();
 
             foreach (KeyValuePair<DateTime, ConsoleKey> item in keys)           
                 SpyFile.FileInfo(item.Key, item.Value);

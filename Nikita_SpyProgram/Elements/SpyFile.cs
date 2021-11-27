@@ -12,7 +12,7 @@ namespace Nikita_SpyProgram.Elements
         public event Action<DateTime, ConsoleKey> KeyLogger;
 
                      
-        public void Start()
+        public void Logging()
         {
             bool isEnter = false;
             ConsoleKey key;
