@@ -31,7 +31,7 @@ namespace Nikita_SpyProgram.Elements
 
         public static void FileInfo(DateTime time, ConsoleKey key)
         {
-            string path = @"C:\Users\khara\Desktop\Info.txt";
+            string path = @"C:\Users\Nikita\Desktop\Info.txt";
 
             var file = new FileInfo(path);
 
@@ -40,8 +40,7 @@ namespace Nikita_SpyProgram.Elements
 
 
             using (StreamReader sr = new StreamReader(path))           
-                Console.WriteLine(sr.ReadToEnd());
-            
+                Console.WriteLine(sr.ReadToEnd());            
         }
     }
 }
