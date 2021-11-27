@@ -19,10 +19,9 @@ namespace Nikita_SpyProgram
 
             spyFile.Start();
 
-            foreach (KeyValuePair<DateTime, ConsoleKey> item in keys)
-            {
+            foreach (KeyValuePair<DateTime, ConsoleKey> item in keys)           
                 SpyFile.FileInfo(item.Key, item.Value);
-            }
+            
 
             Console.ReadKey();
         }

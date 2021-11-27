@@ -11,6 +11,7 @@ namespace Nikita_SpyProgram.Elements
     {
         public event Action<DateTime, ConsoleKey> KeyLogger;
 
+                     
         public void Start()
         {
             bool isEnter = false;
@@ -28,23 +29,20 @@ namespace Nikita_SpyProgram.Elements
             }
         }
 
-
-
         public static void FileInfo(DateTime time, ConsoleKey key)
         {
             string path = @"C:\Users\khara\Desktop\Info.txt";
 
-            var fileInfo = new FileInfo(path);
+            var file = new FileInfo(path);
 
+            using (StreamWriter sw = file.CreateText())           
+                sw.Write($" Время: {time} | Клавиша : {key}");
 
-            using (StreamWriter sw = fileInfo.AppendText())
-            {
-                sw.WriteLine($" Время: {time} | Клавиша : {key}");
-            }
 
             using (StreamReader sr = new StreamReader(path))
             {
                 Console.WriteLine(sr.ReadToEnd());
+                sr.Close();
             }
         }
     }
